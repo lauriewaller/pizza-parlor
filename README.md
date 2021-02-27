@@ -31,10 +31,10 @@ This website helps a user order a pizza, with options to choose the pizza toppin
 **Describe: pizzaCost()**
 
 Test: "It should add the cost of the toppings the user chooses."
-Expect: (pizzaCost(["pepperoni," "sausage"]).toEqual(["$2.00"]);
+Expect: (pizzaCost(["pepperoni," "sausage"]).toEqual(["$4.00"]);
 
 Test: "It should add the cost of the pizza size and the user toppings the user chooses."
-Expect: (pizzaCost("pepperoni," "sausage," "small").toEqual(["$12.00"]);
+Expect: (pizzaCost("pepperoni," "sausage," "small").toEqual(["$14.00"]);
 
 ## Known Bugs
 

@@ -17,19 +17,22 @@
 
       <div class="orderToppings">
         <p class="inputHeader">Toppings</p>
-          <input class = "two" type="checkbox" name="toppings" value="Pepperoni">Pepperoni ($2.00)</input><br>
-          <input class = "two" type="checkbox" name="toppings" value="Sausage">Sausage ($2.00)</input><br>
-          <input class = "one" type="checkbox" name="toppings" value="Spinach">Spinach ($1.00)</input><br>
+          <input class = "two" type="checkbox" name="toppings" value="Pepperoni"> Pepperoni ($2.00)</input><br>
+          <input class = "two" type="checkbox" name="toppings" value="Sausage"> Sausage ($2.00)</input><br>
+          <input class = "one" type="checkbox" name="toppings" value="Spinach"> Spinach ($1.00)</input><br>
       </div>
       
+
       <div class="orderSize">
         <p class="inputHeader">Size</p>
-          <input class = "ten" type="checkbox" name="size" value="small" >Small ($10.00)</input><br>
-          <input class = "twelve" type="checkbox" name="size" value="medium">Medium ($12.00)</input><br>
-          <input class = "fourteen" type="checkbox" name="size" value="large">Large ($14.00)</input><br>
-          <input class = "sixteen" type="checkbox" name="size" value="x-large">X-Large ($16.00)</input><br>
+        <select class="form-control" id="size-list">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-large</option>
+        </select>
       </div>
-    
+
       <button type="submit" class="btn btn-success">Order My Pizza!</button>
     </form>
 
@@ -38,7 +41,7 @@
       <p>Your pizza is being made! You decided on a <span id="pizzaSize"></span> pizza with these toppings: 
         <span id="pizzaToppings"> <ul id="test"></ul></span>
       
-      Your order total is <span id="pizzaCost"></span>.
+      Your order total is $<span id="pizzaCost"></span>.00.
       </p>
     </div>
     

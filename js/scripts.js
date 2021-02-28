@@ -41,7 +41,6 @@ function addCost(pizzaObject) {
   return toppingsCost + pizzaObject.sizePrice;
   console.log(pizzaObject.sizePrice);
   // Pizza.toppings[key].price
-
   // return + this.sizePrice;
 
 }
@@ -79,7 +78,6 @@ $(document).ready(function() {
 
     // let pizzaCost = userPizza.cost();
 
-    //add toppings into pizza object
     $("input:checkbox[class=one]:checked").each(function(){
       let checkedTopping = $(this).val();
       let newTopping = new Toppings(checkedTopping, 1);

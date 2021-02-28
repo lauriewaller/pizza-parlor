@@ -28,9 +28,8 @@ Pizza.prototype.addSize = function() {
 Pizza.prototype.addCost = function() {
   let toppingsCost = 0;
   let index = 0;
-  //let array = Pizza.array;
-  Pizza[this.toppingsPrice].forEach(function(index) {
-    toppingsCost += this.toppingsPrice[index]; 
+  this.toppingsPrice.forEach(function(element) {
+    toppingsCost += element; 
   })
   console.log(toppingsCost)
   console.log(this.sizePrice)
@@ -49,8 +48,6 @@ $(document).ready(function() {
     let userPizza = new Pizza();
     //push size into object 
     userPizza.addSize();
-
-    
 
     $("input:checkbox[class=one]:checked").each(function(){
       let checkedTopping = $(this).val();
@@ -71,10 +68,11 @@ $(document).ready(function() {
     let size = $("#size-list").val();
     $("#pizzaSize").append(size);
     //show cost to user
-    //$("#pizzaCost").append(pizzaCost);
+    
 
     console.log(userPizza);
     let cost = userPizza.addCost();
+    $("#pizzaCost").append(cost);
     console.log(cost)
   });
 });

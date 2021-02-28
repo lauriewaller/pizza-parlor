@@ -1,4 +1,4 @@
-# Pizza parlor
+# Pizza Parlor
 
 #### A website for a user to order pizza
 
@@ -28,7 +28,7 @@ This website helps a user order a pizza, with options to choose the pizza toppin
 
 ## Tests 
 
-**Describe: addost()**
+**Describe: addCost()**
 
 Test: "It should add the cost of the toppings the user chooses."
 Expect: (addCost(["pepperoni," "sausage"]).toEqual(["$4.00"]);

@@ -1,5 +1,5 @@
 
-
+//begin good code
 function Pizza() {
   this.toppings = {}; // this will remain named toppings
   this.size = {};
@@ -10,18 +10,10 @@ function Toppings(topping, price) {
   this.price = price
 }
 
-    $("input:checkbox[class=two]:checked").each(function(){
-      let topping = $(this).val();
-      console.log(topping)
-      let newTopping = new Toppings(topping, 2);
-      });
 
-Pizza.prototype.addToppings = function(topping) {
-  this.toppings[topping] = topping;
-  this.price = 2;
-
-  //this.toppings.push(topping);
-}
+      Pizza.prototype.addTopping = function(toppingObject, topping) {  
+        this.toppings[topping] = toppingObject;
+      }
 
 let myPizza = {
   toppings: {
@@ -41,6 +33,20 @@ this.size.price + this.toppings[topping].price
 
 //create object 
 
+Pizza.prototype.cost = function() {
+  let toppingsCost = 0;
+  let userObject = Pizza[this.toppings];
+  let toppingsKeys = Object.keys(userObject);  
+  toppingsKeys.forEach(function(key) {
+    console.log(key)
+    toppingsCost += toppingsKeys[key].price;
+  });  
+  // key = 
+  // Pizza.toppings[key].price
+  // return + this.sizePrice;
+
+}
+// myPizza.toppings[key].price
 
 
 Pizza.prototype.addSize = function(size) {

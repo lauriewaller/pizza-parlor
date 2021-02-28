@@ -1,6 +1,6 @@
 //Business Logic 
 function Pizza(size, sizePrice) {
-  this.toppings = {}; // this will remain named toppings
+  this.toppings = {};
   this.size = size;
   this.sizePrice = sizePrice;
 }
@@ -21,17 +21,28 @@ Pizza.prototype.addSize = function() {
     this.sizePrice = 10;
   } else if (userSize === "medium") {
     this.sizePrice = 12;
-  } else if (userSize === "medium") {
+  } else if (userSize === "large") {
     this.sizePrice = 14;
   } else {
     this.sizePrice = 16;
   }
 }  
 
-Pizza.prototype.cost = function() {
-  Object.keys(Pizza.toppings)
+function addCost(pizzaObject) {
+  let toppingsCost = 0;
+  let userObject = pizzaObject["toppings"];
+  console.log(userObject)
+  Object.keys(userObject).forEach(function(key) {
+    console.log(key)
+    console.log(this.key["price"])
 
-  //return + this.sizePrice;
+    toppingsCost += key["price"];
+  });  
+  return toppingsCost + pizzaObject.sizePrice;
+  console.log(pizzaObject.sizePrice);
+  // Pizza.toppings[key].price
+
+  // return + this.sizePrice;
 
 }
 
@@ -40,6 +51,10 @@ let myPizza = {
     spinach: {
       userTopping: "spinach",
       price: 1
+    },
+    pepperoni: {
+      userTopping: "pepperoni",
+      price: 2
     },
   },
 
@@ -59,29 +74,23 @@ $(document).ready(function() {
     $("#final-pizza-order").show();
     //instantiate pizza object, create variable for pizza cost, add size to pizza object 
     let userPizza = new Pizza();
+    //push size into object 
     userPizza.addSize();
 
     // let pizzaCost = userPizza.cost();
 
-
-    //tbd
-    // console.log(userPizza)
     //add toppings into pizza object
-    //push toppings with 1 into object
     $("input:checkbox[class=one]:checked").each(function(){
       let checkedTopping = $(this).val();
       let newTopping = new Toppings(checkedTopping, 1);
       userPizza.addTopping(newTopping, checkedTopping);
       });
         
-    //push toppings with 2 into object
     $("input:checkbox[class=two]:checked").each(function(){
       let checkedTopping = $(this).val();
       let newTopping = new Toppings(checkedTopping, 2);
       userPizza.addTopping(newTopping, checkedTopping);
       });
-
-    //push size into object  
 
     //show toppings to user
     $("input:checkbox[name=toppings]:checked").each(function(){
@@ -94,10 +103,9 @@ $(document).ready(function() {
     //show cost to user
     //$("#pizzaCost").append(pizzaCost);
 
-    // $("input:checkbox[class=two]:checked").each(function(){
-    //   let topping = $(this).val();
-    //   console.log(topping)
-    //   });
     console.log(userPizza);
+
+    let cost = addCost(userPizza);
+    console.log(cost)
   });
 });

@@ -11,6 +11,11 @@ button {
   font-weight: bold;
 }
 
+.orderSize {
+  margin-top: 10px;
+}
+
 #final-pizza-order {
   display: none;
+  margin-top: 20px;
 }

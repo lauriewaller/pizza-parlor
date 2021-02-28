@@ -1,3 +1,4 @@
+//Business Logic 
 function Pizza() {
   this.toppings = [];
   this.size = "";
@@ -7,47 +8,56 @@ Pizza.prototype.addToppings = function(topping) {
   this.toppings.push(topping);
 }
 
+Pizza.prototype.addSize = function(size) {
+  let userSize = $("#size-list").val();
+  this.size = userSize;
+}
+
 Pizza.prototype.cost = function() {
   //let cost = 0;
   let toppingsCost = this.toppings.length;
-  let size = $("#size-list").val(); 
-  let sizeCost = 10;
-  if (size = "small") {
+  console.log(toppingsCost)
+  let sizeCost = 12;
+  if (this.size = "small") {
     //return cost + toppingsCost + sizeCost;
     return toppingsCost + sizeCost;
   } 
-
 }
 
-
+//UI Logic
 $(document).ready(function() {
   $("form#pizza-inputs").submit(function(event) {
     event.preventDefault();
 
     $("span").empty();
-
+    $("ul").empty();
     $("#final-pizza-order").show();
-    
+    //instantiate pizza object, create variable for pizza cost, add size to pizza object 
     let userPizza = new Pizza();
     let pizzaCost = userPizza.cost();
-
+    userPizza.addSize();
+    //tbd
     console.log(userPizza)
-
+    //add toppings into pizza object
     $("input:checkbox[name=toppings]:checked").each(function(){
-        let topping = $(this).val();
-        userPizza.addToppings(topping);
+      let topping = $(this).val();
+      userPizza.addToppings(topping);
       });
-
-    //UI
+    //show toppings to user
     $("input:checkbox[name=toppings]:checked").each(function(){
       let toppings = $(this).val();
       $('#test').append(toppings + "<br>");
     });
-
+    //show size to user
     let size = $("#size-list").val();
-    $('#pizzaSize').append(size);
+    $("#pizzaSize").append(size);
+    //show cost to user
+    $("#pizzaCost").append(pizzaCost);
 
-    $('#pizzaCost').append(pizzaCost);
+    // $("input:checkbox[class=two]:checked").each(function(){
+    //   let topping = $(this).val();
+    //   console.log(topping)
+    //   });
 
   });
 });
@@ -59,6 +69,7 @@ $(document).ready(function() {
 // Object[key]
 
 // a property for ordered???? boolean
+
 // let samplePizza = {
 //   toppings = {
 //     pepperoni: {
@@ -138,3 +149,45 @@ $(document).ready(function() {
 
 //   };
 // }
+
+
+function Pizza() {
+  this.toppings = {};
+  this.size = {};
+}
+
+let myPizza = {
+  toppings: {
+    userTopping: "spinach",
+    price: 1
+  },
+
+  size: {
+    userSize: "small",
+    price: 10 
+  }
+}
+
++ this.topping.price
+
+
+Pizza.prototype.addToppings = function(topping) {
+  let 
+  this.toppings.push(topping);
+}
+
+Pizza.prototype.addSize = function(size) {
+  let userSize = $("#size-list").val();
+  this.size = userSize;
+}
+
+Pizza.prototype.cost = function() {
+  //let cost = 0;
+  let toppingsCost = this.toppings.length;
+  console.log(toppingsCost)
+  let sizeCost = 12;
+  if (this.size = "small") {
+    //return cost + toppingsCost + sizeCost;
+    return toppingsCost + sizeCost;
+  } 
+}

@@ -1,27 +1,52 @@
 //Business Logic 
-function Pizza() {
-  this.toppings = [];
-  this.size = "";
+function Pizza(size, sizePrice) {
+  this.toppings = {}; // this will remain named toppings
+  this.size = size;
+  this.sizePrice = sizePrice;
 }
 
-Pizza.prototype.addToppings = function(topping) {
-  this.toppings.push(topping);
+function Toppings(topping, price) {
+  this.topping = topping,
+  this.price = price
 }
 
-Pizza.prototype.addSize = function(size) {
+Pizza.prototype.addTopping = function(toppingObject, topping) {  
+  this.toppings[topping] = toppingObject;
+}
+
+Pizza.prototype.addSize = function() {
   let userSize = $("#size-list").val();
   this.size = userSize;
-}
+  if (userSize === "small") {
+    this.sizePrice = 10;
+  } else if (userSize === "medium") {
+    this.sizePrice = 12;
+  } else if (userSize === "medium") {
+    this.sizePrice = 14;
+  } else {
+    this.sizePrice = 16;
+  }
+}  
 
 Pizza.prototype.cost = function() {
-  //let cost = 0;
-  let toppingsCost = this.toppings.length;
-  console.log(toppingsCost)
-  let sizeCost = 12;
-  if (this.size = "small") {
-    //return cost + toppingsCost + sizeCost;
-    return toppingsCost + sizeCost;
-  } 
+  Object.keys(Pizza.toppings)
+
+  //return + this.sizePrice;
+
+}
+
+let myPizza = {
+  toppings: {
+    spinach: {
+      userTopping: "spinach",
+      price: 1
+    },
+  },
+
+  size: {
+    userSize: "small",
+    price: 10 
+  }
 }
 
 //UI Logic
@@ -34,15 +59,30 @@ $(document).ready(function() {
     $("#final-pizza-order").show();
     //instantiate pizza object, create variable for pizza cost, add size to pizza object 
     let userPizza = new Pizza();
-    let pizzaCost = userPizza.cost();
     userPizza.addSize();
+
+    // let pizzaCost = userPizza.cost();
+
+
     //tbd
-    console.log(userPizza)
+    // console.log(userPizza)
     //add toppings into pizza object
-    $("input:checkbox[name=toppings]:checked").each(function(){
-      let topping = $(this).val();
-      userPizza.addToppings(topping);
+    //push toppings with 1 into object
+    $("input:checkbox[class=one]:checked").each(function(){
+      let checkedTopping = $(this).val();
+      let newTopping = new Toppings(checkedTopping, 1);
+      userPizza.addTopping(newTopping, checkedTopping);
       });
+        
+    //push toppings with 2 into object
+    $("input:checkbox[class=two]:checked").each(function(){
+      let checkedTopping = $(this).val();
+      let newTopping = new Toppings(checkedTopping, 2);
+      userPizza.addTopping(newTopping, checkedTopping);
+      });
+
+    //push size into object  
+
     //show toppings to user
     $("input:checkbox[name=toppings]:checked").each(function(){
       let toppings = $(this).val();
@@ -52,142 +92,12 @@ $(document).ready(function() {
     let size = $("#size-list").val();
     $("#pizzaSize").append(size);
     //show cost to user
-    $("#pizzaCost").append(pizzaCost);
+    //$("#pizzaCost").append(pizzaCost);
 
     // $("input:checkbox[class=two]:checked").each(function(){
     //   let topping = $(this).val();
     //   console.log(topping)
     //   });
-
+    console.log(userPizza);
   });
 });
-
-
-// Pizza.prototype.create = function() {
-//   let key = 
-// }
-// Object[key]
-
-// a property for ordered???? boolean
-
-// let samplePizza = {
-//   toppings = {
-//     pepperoni: {
-//       topping: "pepperoni",
-//       price: 2, 
-//       ordered: false
-//     },
-//     sausage: {
-//       topping: sausage,
-//       price: 2
-//     } 
-//   },
-
-//   size = {
-//     small: {
-//       size: "small",
-//       price: 10
-//     },
-//     sausage: {
-//       topping: sausage,
-//       price: 2
-//     } 
-//   }
-// };
-
-// let usa = { 
-//   name: "United States of America", 
-//   cities: [pdx, sfo, sea] 
-// };
-
-// Pizza.prototype.cost = function() {
-//   return 
-//   //use foreach? 
-// }
-
-// push 
-
-
-//1. when user submits, push each topping into object. push topping price into object 
-//2. push value of size into object. push size price into object. 
-  //if class for topping = "", push price by class amount 
-  //if class for size = "", push price into object 
-
-//then write loop to iterate through each key and add price, return price 
-//then use .text to return object values 
-
-
-
-// let samplePizza2 = {
-//   toppings: {
-//     pepperoni: 2,
-//     sausage: 2,
-//     spinach: 1
-//   },
-
-//   size: {
-//     small: 10,
-//   }
-// }
-// let test1 = samplePizza2.toppings.pepperoni
-
-
-// Pizza.prototype.addToppings = function() {
-//   $("input:checkbox[name=toppings]:checked").each(function(){
-//     let topping = $(this).val();
-//     this.toppings.push(topping);
-// });
-// }
-
-
-// function Pizza() { //need parameters? should this just have empty arrays? 
-//   this.toppings = {
-//     //this.topping = {},
-//     //this.price = price;
-//   };
-//   this.size = {
-
-//   };
-// }
-
-
-function Pizza() {
-  this.toppings = {};
-  this.size = {};
-}
-
-let myPizza = {
-  toppings: {
-    userTopping: "spinach",
-    price: 1
-  },
-
-  size: {
-    userSize: "small",
-    price: 10 
-  }
-}
-
-+ this.topping.price
-
-
-Pizza.prototype.addToppings = function(topping) {
-  let 
-  this.toppings.push(topping);
-}
-
-Pizza.prototype.addSize = function(size) {
-  let userSize = $("#size-list").val();
-  this.size = userSize;
-}
-
-Pizza.prototype.cost = function() {
-  //let cost = 0;
-  let toppingsCost = this.toppings.length;
-  console.log(toppingsCost)
-  let sizeCost = 12;
-  if (this.size = "small") {
-    //return cost + toppingsCost + sizeCost;
-    return toppingsCost + sizeCost;
-  } 
-}

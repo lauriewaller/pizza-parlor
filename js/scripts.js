@@ -11,13 +11,11 @@ Pizza.prototype.addToppings = function(topping, price) {
 }
 
 Pizza.prototype.addSize = function() {
-  let userSize = $("#size-list").val();
-  this.size = userSize;
-  if (userSize === "small") {
+  if (this.size === "small") {
     this.sizePrice = 10;
-  } else if (userSize === "medium") {
+  } else if (this.size === "medium") {
     this.sizePrice = 12;
-  } else if (userSize === "large") {
+  } else if (this.size === "large") {
     this.sizePrice = 14;
   } else {
     this.sizePrice = 16;
@@ -40,7 +38,9 @@ $(document).ready(function() {
     $("ul").empty();
     $("#final-pizza-order").show();
 
-    let userPizza = new Pizza();
+    let userSize = $("#size-list").val();
+    
+    let userPizza = new Pizza(userSize);
 
     $("input:checkbox[class=one]:checked").each(function(){
       let checkedTopping = $(this).val();

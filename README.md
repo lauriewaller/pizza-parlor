@@ -30,11 +30,11 @@ This website helps a user order a pizza, with options to choose the pizza toppin
 
 **Describe: addCost()**
 
-Test: "It should add the cost of the toppings the user chooses."
-Expect: (addCost("pepperoni," "sausage").toEqual("$4.00");
+Test: "It should add the cost of the toppings the user chooses. If "pepperoni" = 2 and "sausage" = 2:"
+Expect: (addCost("pepperoni," "sausage").toEqual(4));
 
-Test: "It should add the cost of the pizza size and the user toppings the user chooses."
-Expect: (addCost("pepperoni," "sausage," "small").toEqual("$14.00");
+Test: "It should add the cost of the pizza size and the user toppings the user chooses. If "pepperoni" = 2, "sausage" = 2, and "small" = 10:"
+Expect: (addCost("pepperoni," "sausage," "small").toEqual(14));
 
 ## Known Bugs
 

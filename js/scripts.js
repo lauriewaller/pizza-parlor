@@ -59,8 +59,7 @@ $(document).ready(function() {
 
     userPizza.addSize();
 
-    let size = $("#size-list").val();
-    $("#pizzaSize").append(size);
+    $("#pizzaSize").append(userSize);
 
     let cost = userPizza.addCost();
     $("#pizzaCost").append(cost);

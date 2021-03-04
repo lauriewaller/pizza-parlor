@@ -10,7 +10,7 @@ Pizza.prototype.addToppings = function(topping, price) {
   this.toppingsPrice.push(price);
 }
 
-Pizza.prototype.addSize = function() {
+Pizza.prototype.addSizePrice = function() {
   if (this.size === "small") {
     this.sizePrice = 10;
   } else if (this.size === "medium") {
@@ -57,7 +57,7 @@ $(document).ready(function() {
       $('#test').append(toppings + "<br>");
     });
 
-    userPizza.addSize();
+    userPizza.addSizePrice();
 
     $("#pizzaSize").append(userSize);
 

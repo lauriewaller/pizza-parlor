@@ -1,6 +1,6 @@
 # Pizza Parlor
 
-#### A website for a user to order pizza
+#### A website for a user to order a custom pizza
 
 #### By **Laurie Waller**
 

@@ -24,7 +24,7 @@ This website helps a user order a pizza, with options to choose the pizza toppin
   5. Type in `git clone` and then paste the URL you copied:
       `git clone https://github.com/lauriewaller/pizza-parlor`. Press Enter.
   6. One great application to open your files in is Visual Studio Code. To download VS Code, go to https://code.visualstudio.com/ and click on Download in the top righthand corner. From there, choose the donwload type necessary from your computer and follow the prompts.
-  7. After you have completed the download, return to Terminal. Once you've ensured you are in the portfolio folder, type `code .` and press Enter. This will open all files in VS Code for you.
+  7. After you have completed the download, return to Terminal. Navigate to the pizza-parlor directory, type `code .` and press Enter. This will open all files in VS Code for you.
 
 ## Tests 
 
